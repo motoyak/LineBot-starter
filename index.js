@@ -18,8 +18,10 @@ const config = {
 // about Express itself: https://expressjs.com/
 const app = express();
 
+app.use(bodyParser.json());
+
 app.post('/', (req, res) => {
-  console.log(bodyParser.json(req.body));
+  console.log(req.body);
 });
 
 // register a webhook handler with middleware
