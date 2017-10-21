@@ -17,7 +17,7 @@ const config = {
 const app = express();
 
 app.post('/', (req, res) => {
-  console.log(req);
+  console.log(req.body);
 });
 
 // register a webhook handler with middleware
