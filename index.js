@@ -18,7 +18,6 @@ const app = express();
 
 app.post('/', (req, res) => {
   console.log(req);
-  console.log(res);
 });
 
 // register a webhook handler with middleware
