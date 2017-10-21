@@ -11,5 +11,9 @@
   },
   "repository": "git@github.com:motoyak/LineBot-starter.git",
   "author": "Motohiro Yakura <motohiro686@yahoo.co.jp>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@line/bot-sdk": "^3.1.1",
+    "express": "^4.16.2"
+  }
 }
