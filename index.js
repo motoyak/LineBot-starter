@@ -3,6 +3,8 @@
 //const line = require('@line/bot-sdk');
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -17,7 +19,7 @@ const config = {
 const app = express();
 
 app.post('/', (req, res) => {
-  console.log(req.body);
+  console.log(bodyParser.json(req.body));
 });
 
 // register a webhook handler with middleware
