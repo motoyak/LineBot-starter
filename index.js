@@ -1,8 +1,7 @@
 'use strict';
 
-//const line = require('@line/bot-sdk');
+const line = require('@line/bot-sdk');
 const express = require('express');
-
 const bodyParser = require('body-parser');
 
 // create LINE SDK config from env variables
@@ -12,22 +11,16 @@ const config = {
 };
 
 // create LINE SDK client
-//const client = new line.Client(config);
+const client = new line.Client(config);
 
 // create Express app
 // about Express itself: https://expressjs.com/
 const app = express();
-
 app.use(bodyParser.json());
-
-app.post('/', (req, res) => {
-  console.log(JSON.stringify(req.body));
-});
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-//app.post('/webhook', line.middleware(config), (req, res) => {
-app.post('/webhook', (req, res) => {
+app.post('/', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result));
@@ -41,10 +34,10 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-//  const echo = { type: 'text', text: event.message.text };
+  const echo = { type: 'text', text: event.message.text };
 
   // use reply API
-//  return client.replyMessage(event.replyToken, echo);
+  return client.replyMessage(event.replyToken, echo);
 }
 
 // listen on port
