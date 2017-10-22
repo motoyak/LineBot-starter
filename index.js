@@ -21,7 +21,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
-  console.log(req.body);
+  console.dir(req.body);
 });
 
 // register a webhook handler with middleware
