@@ -2,9 +2,6 @@
   "name": "LineBot-starter",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": {
-    "node": "8.7.0"
-  },
   "scripts": {
     "start": "node index.js",
     "test": "node test.js"
